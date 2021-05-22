@@ -9,9 +9,11 @@ function GameDetail() {
 
     const dispatch = useDispatch();
 
+    
     const { name } = useParams()
     var genres, desc;
-
+    
+    const genresList = useSelector(store => store.genresList)
     const gameDesc = useSelector(store => store.details)
     const loading = useSelector(store => store.loading)
     const detailsSS = useSelector(store => store.detailsScreenshots)
@@ -23,7 +25,9 @@ function GameDetail() {
 
     genres = gameDesc?.genre?.join(" / ").split(" ").map(g => {
         if (g !== "/") {
-            return <Link key={`GD${key++}`} className="linkgenreGC" to={`/genres/${g}`}>{`${g}`}</Link>;
+            return <Link key={`GD${key++}`} className="linkgenreGC" 
+            to={`/videogames?filtroGenero=${genresList.find(gen=> gen.name === g)?.slug}`}>{`${g}`}
+            </Link>;
         }
         else {
             return ` ${g} `;
