@@ -1,0 +1,82 @@
+.bigContGD {
+    animation-name: grow;
+    animation-duration: 0.2s;
+}
+
+.maindivGD {
+    display: flex;
+    width: 80%;
+    padding: 0 50px;
+    margin: 30px auto;
+    align-items:initial;
+    justify-content: center;
+    text-align: start;
+}
+
+.textdivGD {
+    margin: 0 30px;
+    width: 80%;
+    font-size: 18px;
+
+}
+
+.pDesc {
+    margin: 10px auto;
+    font-size: 15px;    
+    text-align: start;
+    
+}
+
+.hidemaindivGD {
+    display: flex;
+}
+
+.imageD {
+    margin: 0 30px;
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.hidemaindivGD {
+    display: none
+}
+
+.loadingReact {
+    width: 200px;
+    margin-top: 15%;
+}
+
+@keyframes grow {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.prevButtonGD {
+    color: white;
+    background: rgb(88, 88, 88);
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 215px;
+    font-size: 15px;
+    border-radius: 9px;
+    border: none;
+    padding: 2px 10px;
+}
+
+.nextButtonGD {
+    color: white;
+    background: rgb(88, 88, 88);
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 295px;
+    font-size: 15px;
+    border-radius: 9px;
+    border: none;
+    padding: 2px 10px;
+}

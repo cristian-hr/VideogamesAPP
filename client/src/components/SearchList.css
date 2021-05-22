@@ -1,0 +1,59 @@
+.maindivSL {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 10px 1%;
+    width: 90%;
+}
+
+.bigmaindivSL {
+    height: 1200px;
+    width: 99%;
+}
+
+.big2maindivSL {    
+    display: flex;
+    justify-content: flex-start;
+}
+
+.filterdivSL {    
+    justify-items: right;
+    font-size: 13px;
+    padding-top: 5%;
+    padding-left: 1%;
+    width: 11%;
+    /* margin-right: 70%; */
+}
+
+.cont1SL {
+    margin: 15px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1300px;
+}
+
+.loadingSL {
+    padding-top: 4%;
+    padding-right: 10%;
+}
+
+.loadingSLHide {
+    display: none;
+}
+
+.cont1SLHide {
+    display: none;
+}
+
+.notFound {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 43%;
+    font-size: 30px;
+}
+
+.notFoundH {
+    display: none;
+}
+        

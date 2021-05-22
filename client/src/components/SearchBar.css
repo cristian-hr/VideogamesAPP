@@ -1,0 +1,75 @@
+.searchDiv {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 40px;
+    margin-top: 20px;    
+}
+
+.mainmenu {
+    display: flex;
+    flex-direction: row;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    justify-content: center;
+}
+
+.addgame {
+    display: flex;
+    flex-direction: row;
+}
+
+.inputtextSB {
+    height: 23px;
+    border-radius: 15px;
+    width: 500px;
+    padding: 0 15px;
+}
+.inputtextSB:focus {
+    outline: none;
+}
+
+.buttonSearchSB {
+    position: absolute;
+    margin-left: -64px;
+    background: transparent;
+    height: 27px;
+    font-size: 15px;
+    border: none;
+    transition: 0.2s;
+}
+.buttonSearchSB:hover {
+    color: rgb(128, 128, 128);
+}
+
+.botonAddSB {  
+    margin: 0 5px;
+    padding:5px 15px;
+    border-radius: 15px;
+    font-size: 15px;  
+    background-color: rgb(255, 255, 1);
+
+}
+
+.buttonHome {
+    color: white;
+    background: rgb(88, 88, 88);
+    margin: 0 5px;
+    padding:5px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    border: none;
+}
+
+.buttonMain {
+    color: white;
+    background: rgb(88, 88, 88);
+    margin: 0 5px;
+    padding:5px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    border: none;
+}

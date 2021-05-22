@@ -1,0 +1,51 @@
+.maindivGC {
+    margin: 20px 15px;
+    transition: all .2s ease-in-out;    
+}
+.maindivGC:hover { 
+    transform: scale(1.02); 
+}
+
+.linkGC {
+    color: rgb(214, 214, 214);
+    text-decoration:none; 
+}
+
+.linkGC:hover {
+    color: rgb(255, 255, 255);
+     text-decoration:none;
+}
+
+.backimage {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;  
+    border: 2px;  
+    border-style: solid;
+    border-color: rgb(148, 148, 148);  
+}
+
+.genredivGC {
+    display: flex;
+    margin: 1% 0;
+    font-size: 13.5px;
+    white-space: pre;
+    text-decoration: none;
+    color: lavender;
+}
+
+.linkgenreGC {    
+    text-decoration: none;
+    color: lavender;
+}
+
+.linkgenreGC:hover {
+    color: rgb(255, 255, 255);
+    text-decoration:none;
+}
+
+.namedivGC {
+    display: flex;
+    font-size: 24px;
+    text-align: start;
+}
