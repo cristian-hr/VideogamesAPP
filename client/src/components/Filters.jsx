@@ -56,9 +56,9 @@ function Filters() {
             <span>Added games filter</span>
             <div>
                 <Link to={queryName ?
-                    `/search?name=${queryName}&filtroAdd=si${queryfiltroGenero ? "filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    `/search?name=${queryName}&filtroAdd=si${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
                     :
-                    `/videogames?filtroAdd=si${queryfiltroGenero ? "filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    `/videogames?filtroAdd=si${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
                 }>
                     <button className="buttonFilter"> Yes </button>
                 </Link>
