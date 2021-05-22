@@ -97,7 +97,7 @@ export function AddGame(props) {
                             <div className="genredivAG">
                                 {genresList?.sort().map(g =>
                                     <label key={`AG${key++}`}>
-                                        <input key={`AG${key++}`} name="genres" type="checkbox" value={`${g}`} onChange={handleChangeGenre} />{`${g}`}
+                                        <input key={`AG${key++}`} name="genres" type="checkbox" value={`${g.slug}`} onChange={handleChangeGenre} />{`${g.name}`}
                                     </label>
                                 )}
                             </div>
