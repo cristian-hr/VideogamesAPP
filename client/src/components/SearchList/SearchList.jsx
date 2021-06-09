@@ -1,29 +1,34 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import GameCard from "./GameCard.jsx";
-import { primeraLista, filterGen, order, filterAdd } from "../actions/index.js";
-import Filters from "./Filters.jsx"
-import "./Main.css";
+import GameCard from "../GameCard/GameCard";
+import SearchBar from "../SearchBar/SearchBar";
+import { search, filterGenSea, filterAdd, order } from "../../redux/actions";
+import Filters from "../Filters/Filters"
+import "./SearchList.css";
 
-export function Main() {
+function SearchList(props) {
 
     const dispatch = useDispatch()
 
+    let queryName = new URLSearchParams(useLocation().search).get("name")
     let queryfiltroGenero = new URLSearchParams(useLocation().search).get("filtroGenero")
     let queryfiltroAdd = new URLSearchParams(useLocation().search).get("filtroAdd")
     let queryOrder = new URLSearchParams(useLocation().search).get("order")
 
     const {
-        gamesList,
-        filtradoGen,
+        searchList,
+        filtradoGenSea,
         filtradoAdd,
         ordered,
-        loading,} = useSelector( store => store)
+        loading,} = useSelector(store => store)
 
     var games;
-    //trae la primera info del back
+
     useEffect(() => {
+        if (!queryName) {
+            window.location.assign(`http://localhost:3000/videogames`)
+        }
         if (queryOrder) {
             if ((ordered.find(game => game.page === "1")?.order !== queryOrder ||
                 (queryfiltroGenero ?
@@ -35,32 +40,33 @@ export function Main() {
                         ordered.find(game => game.page === "1")?.filterAdd !== queryfiltroAdd)
                     : ordered.find(game => game.page === "1")?.filterAdd))
             ) {
-                dispatch(order(queryOrder, false, queryfiltroGenero, queryfiltroAdd, false))
+                dispatch(order(queryOrder, queryName, queryfiltroGenero, queryfiltroAdd, false))
             }
         }
         else if (queryfiltroAdd) {
-            dispatch(filterAdd(false, queryfiltroGenero, queryfiltroAdd, false))
+            dispatch(filterAdd(queryName, queryfiltroGenero, queryfiltroAdd, false))
         }
         else if (queryfiltroGenero) {
-            if (!(filtradoGen.find(game => game.page === "1")?.genre === queryfiltroGenero)) {
-                dispatch(filterGen(queryfiltroGenero))
+            if (!(filtradoGenSea?.find(game => game.page === "1")?.search === queryName)) {
+                dispatch(filterGenSea(queryName, queryfiltroGenero))
             }
         }
         else {
-            if (!gamesList.find(game => game.page === "1")) dispatch(primeraLista())
+            if (!(searchList?.find(game => game.page === "1")?.search === queryName)) {
+                dispatch(search(queryName))
+            }
         }
     }
     // eslint-disable-next-line
-        , [queryfiltroGenero, queryOrder, queryfiltroAdd])
+        , [queryName, queryfiltroGenero, queryOrder, queryfiltroAdd])
 
-    //asignacion de los juegos cargados a games
     if (queryOrder) games = ordered.find(game => game.page === "1")?.games;
     else if (queryfiltroAdd) games = filtradoAdd.find(game => game.page === "1")?.games;
-    else if (queryfiltroGenero) games = filtradoGen?.find(game => game.page === "1")?.games;
-    else games = gamesList?.find(game => game.page === "1")?.games;
+    else if (queryfiltroGenero) games = filtradoGenSea?.find(game => game.page === "1")?.games;
+    else games = searchList?.find(game => game.page === "1")?.games;
 
-    //link siguiente página
-    var next = `/videogames/page/2${queryfiltroAdd || queryOrder || queryfiltroGenero ? "?" : ""}${queryfiltroAdd ? "filtroAdd=" + queryfiltroAdd : ""}${queryOrder ? "&order=" + queryOrder : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}`
+    var next =
+        `/videogames/page/2${queryName || queryfiltroAdd || queryOrder || queryfiltroGenero ? "?" : ""}${queryName ? "name=" + queryName : ""}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryOrder ? "&order=" + queryOrder : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}`
 
     if (loading) {
         return (
@@ -68,20 +74,21 @@ export function Main() {
         )
     }
 
-    var key = 1
+    var key = 1;
 
     return (
-        <div className="bigmaindivM">
-            <div className="maindivM">
-                <Filters />
-                <div className="contTopGames">
-                    <span className="spanTopGames">Top Games</span>
-                    <div className={games ? "cont1" : "cont1Hide"}>
+        <div className="bigmaindivSL">
+            <SearchBar location={props.location} />
+            <div className="big2maindivSL">
+                <Filters /> 
+                <div className={games?.length === 0 ? "notFound" : "notFoundH" }>No games found :(</div>               
+                <div className="maindivSL">
+                    <div className={games ? "cont1SL" : "cont1SLHide"}>
                         {games?.map(g => <GameCard key={key++}
                             game={g}
                         />)}
                     </div>
-                </div>
+                </div>                
             </div>
             <Link to={next}>
                 <button className={games?.length < 15 ? "nextbuttonMH" : "nextbuttonM"}
@@ -90,6 +97,6 @@ export function Main() {
             </Link>
         </div>
     )
-};
+}
 
-export default Main;
+export default SearchList;

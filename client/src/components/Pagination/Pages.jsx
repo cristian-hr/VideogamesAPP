@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch} from "react-redux"
 import { Link } from "react-router-dom";
 import { useParams, useLocation } from "react-router";
-import { pages, pagesSearch, filterGen, filterGenSea, filterAdd, order } from "../actions/index.js"
-import GameCard from "../components/GameCard.jsx"
-import Filters from "./Filters.jsx"
+import { pages, pagesSearch, filterGen, filterGenSea, filterAdd, order } from "../../redux/actions/index.js"
+import GameCard from "../GameCard/GameCard"
+import Filters from "../Filters/Filters"
 import "./Pages.css"
 
 function Pages() {

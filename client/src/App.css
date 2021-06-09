@@ -3,6 +3,11 @@
   background-color: rgb(19, 19, 19);
 }
 
+.App2 {
+  display: flex;
+  justify-content: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

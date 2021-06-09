@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L",
+    "transpile": "babel --out-dir dist-server",
     "test": "mocha -w --timeout 10000 ./tests/**/*.spec.js"
   },
   "author": "Henry",
@@ -12,6 +13,9 @@
   "engines": {
     "node": ">=12.18.3",
     "npm": ">=6.14.6"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -31,6 +35,9 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",

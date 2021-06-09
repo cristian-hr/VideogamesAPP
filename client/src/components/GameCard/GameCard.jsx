@@ -8,8 +8,8 @@ function GameCard(props) {
     const { genresList } = useSelector(store => store)
     var key = 1
 
-    var genres = props.game?.genre?.join(" / ").split(" ").map(g => {
-        if (g !== "/") {
+    var genres = props.game?.genre?.join("- / -").split("-").map(g => {
+        if (g !== " / ") {
             return <Link key={`GC${key++}`} className="linkgenreGC" 
             to={`/videogames?filtroGenero=${genresList.find(gen=> gen.name === g)?.slug}`}>{`${g}`}
             </Link>;
@@ -28,7 +28,7 @@ function GameCard(props) {
                     </Link>
                 </div>
                 <div className="genredivGC">
-                    <span>{genres}</span>
+                    <span>{genres.length > 7 ? [...genres.slice(0,7)," ..."] : genres}</span>
                 </div>
                 <div className="namedivGC">
                     <Link className="linkGC" key={`gc${key++}`} to={`/videogames/${props.game?.slug}`}>

@@ -1,22 +1,25 @@
 .maindivM {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin: 10px 1%;  
+    margin: 10px auto; 
+    margin-left: 4%;
+    margin-right: 4%;
+    max-width: 1500px; 
+    border: 0 20%;
 }
 
 .bigmaindivM {
     height: 1200px;
-    width: 99%;
     animation-name: grow;
     animation-duration: 0.2s;
 }
 
 .filterdivM {
+    display: flex;
     justify-items: right;
     font-size: 13px;
-    padding: 0 1%;
-    padding-top: 6%;
     width: 20%;
     margin: 0 auto;
 }
@@ -25,8 +28,8 @@
     margin: 15px auto;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 1300px;
 }
 
 .nextbuttonM {
@@ -44,13 +47,14 @@
 }
 
 .contTopGames {
+    display: flex;
     margin-top: 10px;
-    text-align: start;
-    font-size: 35px;
+    text-align: start;    
     width: 100%;
 }
 
 .spanTopGames {
+    font-size: 35px;
     padding-left: 10px ;
 }
 

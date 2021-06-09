@@ -1,23 +1,27 @@
 .maindivP {
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 10px auto;
-    width: 90%;
-    
+    margin-left: 4%;
+    margin-right: 4%;
+    max-width: 1500px;
+    border: 0 20%;    
 }
 
 .bigcontdivP {
     height: 1200px;
+    animation-name: grow;
+    animation-duration: 0.2s;
 }
 
 .filterdivP {    
+    display: flex;
     justify-items: right;
     font-size: 13px;
-    padding-top: 5%;
-    padding-left: 1%;
-    width: 11%;
-    /* margin-right: 70%; */
+    width: 20%;
+    margin: 0 auto;
 }
 
 .cont1P {
@@ -25,7 +29,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 1300px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .firstbuttonP {
