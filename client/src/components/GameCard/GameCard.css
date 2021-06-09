@@ -49,3 +49,14 @@
     font-size: 24px;
     text-align: start;
 }
+
+@media (max-width: 600px) {
+    .backimage {
+        width: 300px;
+        height: 200px;
+        object-fit: cover;  
+        border: 2px;  
+        border-style: solid;
+        border-color: rgb(148, 148, 148);  
+    }
+}

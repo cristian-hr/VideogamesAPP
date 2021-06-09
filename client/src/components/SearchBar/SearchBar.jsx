@@ -21,7 +21,7 @@ function SearchBar() {
                 </Link>
             </div>
             <div className="search">
-                <form action="" >
+                <form action="" className="formSearchSB">
                     <input className="inputtextSB" type="text" onChange={handleChange} />
                     <Link to={`/search?name=${search}`}>
                         <input className="buttonSearchSB" type="submit" value="Search" />
