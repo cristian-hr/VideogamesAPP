@@ -80,7 +80,9 @@ function SearchList(props) {
         <div className="bigmaindivSL">
             <SearchBar location={props.location} />
             <div className="big2maindivSL">
-                <Filters /> 
+                <div className="filterdivSL">
+                    <Filters /> 
+                </div>
                 <div className={games?.length === 0 ? "notFound" : "notFoundH" }>No games found :(</div>               
                 <div className="maindivSL">
                     <div className={games ? "cont1SL" : "cont1SLHide"}>

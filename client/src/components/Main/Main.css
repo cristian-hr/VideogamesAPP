@@ -20,15 +20,14 @@
     display: flex;
     justify-items: right;
     font-size: 13px;
-    width: 20%;
-    margin: 0 auto;
+    align-items: flex-end;
 }
 
 .cont1 {
-    margin: 15px auto;
+    margin: 10px auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -51,11 +50,13 @@
     margin-top: 10px;
     text-align: start;    
     width: 100%;
+    justify-content: space-between;
 }
 
 .spanTopGames {
     font-size: 35px;
-    padding-left: 10px ;
+    /* padding-left: 10px; */
+    padding-bottom: 20px;
 }
 
 .loadingM{

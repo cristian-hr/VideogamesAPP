@@ -32,63 +32,68 @@ function Filters() {
     return (
         <div className="filterdivM">
 
-            <span>Genre filter</span>
-            <select name="filtroGenero" onChange={getFilterGenre} id="selectFGM">
-                {genresList?.map(g => <option key={`M${key++}`} value={g.slug}>{g.name}</option>)}
-            </select>
-            <Link to={queryName ?
-                `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}&filtroGenero=${genreFilter}${queryOrder ? "&order=" + queryOrder : ""}`
-                :
-                `/videogames?${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}&filtroGenero=${genreFilter}${queryOrder ? "&order=" + queryOrder : ""}`
-            }>
-                <button className="buttonFilter">Filter</button>
-            </Link>
-            <Link to={queryName ?
-                `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryOrder ? "&order=" + queryOrder : ""}`
-                :
-                `/videogames?${queryfiltroAdd ? "filtroAdd=" + queryfiltroAdd : ""}${queryOrder ? "&order=" + queryOrder : ""}`
-            }>
-                <button className="buttonFilter">Reset</button>
-            </Link>
-            <br />
-            <br />
-
-            <span>Added games filter</span>
-            <div>
+            <div className="filtersSelectorF">
+                <span>Genre </span> 
+                <select name="filtroGenero" onChange={getFilterGenre} id="selectFGM">
+                    {genresList?.map(g => <option key={`M${key++}`} value={g.slug}>{g.name}</option>)}
+                </select>
                 <Link to={queryName ?
-                    `/search?name=${queryName}&filtroAdd=si${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}&filtroGenero=${genreFilter}${queryOrder ? "&order=" + queryOrder : ""}`
                     :
-                    `/videogames?filtroAdd=si${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    `/videogames?${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}&filtroGenero=${genreFilter}${queryOrder ? "&order=" + queryOrder : ""}`
                 }>
-                    <button className="buttonFilter"> Yes </button>
+                    <button className="buttonFilter">Filter</button>
                 </Link>
-                <Link to={
-                    `/videogames?${queryfiltroGenero ? "filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                <Link to={queryName ?
+                    `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    :
+                    `/videogames?${queryfiltroAdd ? "filtroAdd=" + queryfiltroAdd : ""}${queryOrder ? "&order=" + queryOrder : ""}`
                 }>
-                    <button className="buttonFilter">No</button>
+                    <button className="buttonFilter">Reset</button>
                 </Link>
             </div>
-            <br />
 
-            <span>Order by </span>
-            <select name="orden" onChange={getFilterOrder} id="selectFOM">
-                <option key={`M${key++}`} value="name">Name</option>
-                <option key={`M${key++}`} value="-rating">Rating</option>
-            </select>
-            <Link to={queryName ?
-                `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${orderFilter ? "&order=" + orderFilter : ""}`
-                :
-                `/videogames?${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${orderFilter ? "&order=" + orderFilter : ""}`
-            }>
-                <button className="buttonFilter">Order</button>
-            </Link>
-            <Link to={queryName ?
-                `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}`
-                :
-                `/videogames?${queryfiltroAdd ? "filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}`
-            }>
-                <button className="buttonFilter">Reset</button>
-            </Link>
+            <div className="filtersSelectorF">
+                <div>
+                    <span>Added games </span>
+                </div>
+                <div className="yesNoAddGame">
+                    <Link to={queryName ?
+                        `/search?name=${queryName}&filtroAdd=si${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                        :
+                        `/videogames?filtroAdd=si${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    }>
+                        <button className="buttonFilter"> Yes </button>
+                    </Link>
+                    <Link to={
+                        `/videogames?${queryfiltroGenero ? "filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                    }>
+                        <button className="buttonFilter">No</button>
+                    </Link>
+                </div>
+            </div>
+
+            <div className="filtersSelectorF">
+                <span>Order by </span>
+                <select name="orden" onChange={getFilterOrder} id="selectFOM">
+                    <option key={`M${key++}`} value="name">Name</option>
+                    <option key={`M${key++}`} value="-rating">Rating</option>
+                </select>
+                <Link to={queryName ?
+                    `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${orderFilter ? "&order=" + orderFilter : ""}`
+                    :
+                    `/videogames?${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${orderFilter ? "&order=" + orderFilter : ""}`
+                }>
+                    <button className="buttonFilter">Order</button>
+                </Link>
+                <Link to={queryName ?
+                    `/search?name=${queryName}${queryfiltroAdd ? "&filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}`
+                    :
+                    `/videogames?${queryfiltroAdd ? "filtroAdd=" + queryfiltroAdd : ""}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}`
+                }>
+                    <button className="buttonFilter">Reset</button>
+                </Link>
+            </div>
         </div>
     )
 }

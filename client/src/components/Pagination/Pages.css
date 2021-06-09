@@ -18,10 +18,10 @@
 
 .filterdivP {    
     display: flex;
-    justify-items: right;
     font-size: 13px;
-    width: 20%;
-    margin: 0 auto;
+    justify-content: flex-end;
+    margin-top: 15px;
+    margin-right: 25px;
 }
 
 .cont1P {

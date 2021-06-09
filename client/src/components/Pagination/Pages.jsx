@@ -111,7 +111,9 @@ function Pages() {
         <div className="bigcontdivP">
             <div className="contdivP">
                 <div className="maindivP">
-                    <Filters />
+                    <div className="filterdivP">
+                        <Filters />
+                    </div>
                     <div className="cont1P">
                         {games?.map(g => <GameCard
                             game={g}
