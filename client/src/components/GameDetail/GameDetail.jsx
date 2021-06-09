@@ -63,7 +63,7 @@ function GameDetail() {
             <div className="maindivGD">
                 <div className="divimageGD">
                     <img className="imageD" src={detailsSS[index]} alt="" />
-                    <div>
+                    <div className="divImgButtonsGD">
                         <button className="prevButtonGD" onClick={previous}>Previus</button>
                         <button className="nextButtonGD" onClick={next}>Next</button>
                     </div>

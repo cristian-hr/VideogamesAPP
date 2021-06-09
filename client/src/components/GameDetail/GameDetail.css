@@ -5,7 +5,7 @@
 
 .maindivGD {
     display: flex;
-    width: 80%;
+    max-width: 1300px;
     padding: 0 50px;
     margin: 30px auto;
     align-items:initial;
@@ -62,7 +62,7 @@
     background: rgb(88, 88, 88);
     position: absolute;
     margin-top: 10px;
-    margin-left: 215px;
+    margin-left: 170px;
     font-size: 15px;
     border-radius: 9px;
     border: none;
@@ -74,7 +74,7 @@
     background: rgb(88, 88, 88);
     position: absolute;
     margin-top: 10px;
-    margin-left: 295px;
+    margin-left: 260px;
     font-size: 15px;
     border-radius: 9px;
     border: none;
@@ -88,27 +88,30 @@
         justify-content: center;
         margin: 0 auto;
         text-align: center;
+        width: 100%;
+        max-width: 1000px;
+        padding: 0;
     }
 
     .textdivGD {
         margin: 50px auto;
-        width: 80%;
+        width: 85%;
         font-size: 18px;
     }
 
     .prevButtonGD {
-        margin-left: -45px;
+        margin-left: -70px;
     }
 
     .nextButtonGD {
-        margin-left: 45px;
+        margin-left: 15px;
     }
 
     .imageD {
         margin: 0 auto;
-        width: 100%;
+        width: 95%;
         max-width: 500px;
-        height: 350px;
+        max-height: 300px;
         object-fit: cover;
     }
 }
