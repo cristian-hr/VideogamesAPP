@@ -25,6 +25,8 @@ function App() {
     <div className="App">
       <Route exact path="/" component={Home}/>
       <Route path="/videogames"component={SearchBar}/>
+      <Route path="/search"component={SearchBar}/>
+      <Route path="/addgame"component={SearchBar}/>
       <div className="App2">
         <Route exact path="/videogames" component={Main}/> 
 

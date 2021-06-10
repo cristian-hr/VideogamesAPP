@@ -83,7 +83,6 @@ export function AddGame(props) {
 
     return (
         <div className="maindivAG">
-            <SearchBar location={props?.location} />
             <div className="maindiv2AG">
                 <div className="titledivAG">
                     <h1>Add Games</h1>

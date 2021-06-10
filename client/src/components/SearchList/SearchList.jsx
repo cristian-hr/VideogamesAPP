@@ -78,7 +78,6 @@ function SearchList(props) {
 
     return (
         <div className="bigmaindivSL">
-            <SearchBar location={props.location} />
             <div className="big2maindivSL">
                 <div className="filterdivSL">
                     <Filters /> 
