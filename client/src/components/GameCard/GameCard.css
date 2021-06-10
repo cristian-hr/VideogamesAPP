@@ -60,4 +60,12 @@
         border-style: solid;
         border-color: rgb(148, 148, 148);  
     }
+
+    .genredivGC {
+        margin: 1% 2%;
+    }
+
+    .namedivGC {
+        margin: 0 2%;
+    }
 }

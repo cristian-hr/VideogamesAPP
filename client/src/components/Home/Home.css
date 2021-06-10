@@ -41,3 +41,15 @@
     border: none
 }
 
+@media (max-width: 900px) {
+    .cont1divH {
+        margin: 0 auto;
+        padding-top: 40%;
+        width: 50%;
+    }
+
+    .titledivH {
+        font-size: 30px;
+    }
+}
+

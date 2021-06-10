@@ -50,7 +50,7 @@
     .filterGenreResp {
         border-radius: 15px;
         display: flex;
-        position: fixed;
+        position: absolute;
         background: rgb(36, 36, 36);
         padding: 7px 5px;
         align-items: center;
@@ -60,14 +60,14 @@
         display: flex;
         margin-top: 30px;
         padding: 7px 5px;
-        position: fixed;
+        position: absolute;
         background: rgb(36, 36, 36);
         align-items: center;
     }
     .filterOrderResp {
         border-radius: 15px;
         display: flex;
-        position: fixed;
+        position: absolute;
         margin-top: 60px;
         padding: 7px 5px;
         background: rgb(36, 36, 36);
