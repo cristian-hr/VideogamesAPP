@@ -8,8 +8,8 @@
     border: none;
 }
 
-.yesNoAddGame {
-    display: flex;
+.yesNoAddGame {   
+    display: flex; 
     align-items: center;
 }
 
@@ -18,4 +18,59 @@
     display: flex;
     margin: 0 10px;
     align-items: center;
+}
+
+.filterDivRespF {
+    display: none;
+    color: white;
+    font-size: 20px;
+}
+
+@media (max-width: 965px) {
+    .filterDivRespF {
+        cursor: pointer;
+        display: flex;
+        color: white;
+        font-size: 40px;
+        margin-right: 10px;
+    } 
+
+    .filtersSelectorF {        
+        display: none;
+        background: rgb(36, 36, 36);
+    }
+
+    .filterdivM {
+        background: rgb(36, 36, 36);
+        /* position: absolute; */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filterGenreResp {
+        border-radius: 15px;
+        display: flex;
+        position: fixed;
+        background: rgb(36, 36, 36);
+        padding: 7px 5px;
+        align-items: center;
+    }
+    .filterAddedResp {
+        border-radius: 15px;
+        display: flex;
+        margin-top: 30px;
+        padding: 7px 5px;
+        position: fixed;
+        background: rgb(36, 36, 36);
+        align-items: center;
+    }
+    .filterOrderResp {
+        border-radius: 15px;
+        display: flex;
+        position: fixed;
+        margin-top: 60px;
+        padding: 7px 5px;
+        background: rgb(36, 36, 36);
+        align-items: center;
+    }
 }

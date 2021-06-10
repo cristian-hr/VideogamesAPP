@@ -45,10 +45,11 @@
 
 .contTopGames {
     display: flex;
-    margin-top: 10px;
-    text-align: start;    
+    text-align: start;  
+    margin-bottom: 5px;  
     width: 100%;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .spanTopGames {
