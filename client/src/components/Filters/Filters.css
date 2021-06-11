@@ -26,7 +26,7 @@
     font-size: 20px;
 }
 
-@media (max-width: 965px) {
+@media (max-width: 1000px) {
     .filterDivRespF {
         cursor: pointer;
         display: flex;

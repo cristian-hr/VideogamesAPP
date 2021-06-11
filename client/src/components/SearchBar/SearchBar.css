@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     margin: 10px 1%;
-    margin-top: 20px;    
+    margin-top: 20px;  
+    margin-bottom: 35px;   
 }
 
 .mainmenu {
