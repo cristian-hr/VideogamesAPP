@@ -11,12 +11,18 @@ router.get("/videogames", async (req, res) => {
     //Primera página con filtro género
     if (req.query.filtroGenero) {
 
+        var genreSlug = await Genre.findOne({
+            where: {
+                slug: req.query.filtroGenero
+            }
+        })
+
         var dbFirstPageGenre
         //Si ademas del género viene un search name, busco en la base de datos por género y name
         if (req.query.name) {
             dbFirstPageGenre = await Videogame.findAll({
                 where: {
-                    genre: { [Op.contains]: [req.query.filtroGenero] },
+                    genre: { [Op.contains]: [genreSlug.name] },
                     slug: req.query.name.toLowerCase().split(" ").join("-")
                 },
                 attributes: ["id", "image", "genre", "name", "slug", "rating"],
@@ -25,7 +31,7 @@ router.get("/videogames", async (req, res) => {
         //Sino, busco en la bd solo por género
         else {
             dbFirstPageGenre = await Videogame.findAll({
-                where: { genre: { [Op.contains]: [req.query.filtroGenero] } },
+                where: { genre: { [Op.contains]: [genreSlug.name] } },
                 attributes: ["id", "image", "genre", "name", "slug", "rating"],
             })
         }
@@ -174,13 +180,19 @@ router.get("/videogames/page/:number", async (req, res) => {
 
     //Filtrado por género páginas siguientes
     if (req.query.filtroGenero) {
+
+        var genreSlug = await Genre.findOne({
+            where: {
+                slug: req.query.filtroGenero
+            }
+        })
         //Si ademas del filtro género viene un search name, busco en la base de datos por el genero y name
         var dbPagesGenre
         if (req.query.name) {
             //Busco en la base de datos por el genero y nombre
             dbPagesGenre = await Videogame.findAll({
                 where: {
-                    genre: { [Op.contains]: [req.query.filtroGenero] },
+                    genre: { [Op.contains]: [genreSlug.name] },
                     slug: req.query.name.toLowerCase().split(" ").join("-")
                 },
                 attributes: ["id", "image", "genre", "name", "slug", "rating"],
@@ -189,7 +201,7 @@ router.get("/videogames/page/:number", async (req, res) => {
         //Sino, busco en la bd solo por género
         else {
             dbPagesGenre = await Videogame.findAll({
-                where: { genre: { [Op.contains]: [req.query.filtroGenero] } },
+                where: { genre: { [Op.contains]: [genreSlug.name] } },
                 attributes: ["id", "image", "genre", "name", "slug", "rating"],
             })
         }
