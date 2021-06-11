@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import GameCard from "../GameCard/GameCard";
-import SearchBar from "../SearchBar/SearchBar";
 import { search, filterGenSea, filterAdd, order } from "../../redux/actions";
 import Filters from "../Filters/Filters"
 import "./SearchList.css";

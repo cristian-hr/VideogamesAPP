@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { primeraLista, postGame, destroyGame } from "../../redux/actions";
-import SearchBar from "../../components/SearchBar/SearchBar";
 import GameCard from "../../components/GameCard/GameCard";
 import "./AddGame.css"
 
