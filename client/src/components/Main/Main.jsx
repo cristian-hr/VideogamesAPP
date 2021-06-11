@@ -77,6 +77,7 @@ export function Main() {
                     <span className="spanTopGames">Top Games</span>
                     <Filters />
                 </div>
+                <div className={games?.length === 0 ? "notFound" : "notFoundH" }>No games found :(</div>  
                 <div className={games ? "cont1" : "cont1Hide"}>
                     {games?.map(g => <GameCard key={key++}
                         game={g}
