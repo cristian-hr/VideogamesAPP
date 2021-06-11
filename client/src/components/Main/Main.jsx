@@ -64,7 +64,7 @@ export function Main() {
 
     if (loading) {
         return (
-            <div><img className="loadingReact" src="https://media3.giphy.com/media/RJzm826vu7WbJvBtxX/giphy.gif" alt="" /></div>
+            <div className="loadingGif"><img className="loadingReact" src="https://media3.giphy.com/media/RJzm826vu7WbJvBtxX/giphy.gif" alt="" /></div>
         )
     }
 

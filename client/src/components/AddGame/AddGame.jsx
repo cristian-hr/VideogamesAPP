@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { primeraLista, postGame, destroyGame} from "../../redux/actions";
+import { primeraLista, postGame, destroyGame } from "../../redux/actions";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import GameCard from "../../components/GameCard/GameCard";
 import "./AddGame.css"
@@ -12,7 +12,7 @@ export function AddGame(props) {
     const {
         genresList,
         platforms,
-        gamesList,} = useSelector(store => store)
+        gamesList, } = useSelector(store => store)
 
     const [data, setData] = useState({
         name: "",
@@ -31,29 +31,29 @@ export function AddGame(props) {
         errorP: ""
     })
 
-    function handleInputChange(e) { 
+    function handleInputChange(e) {
         if (e.target.name === "name") {
-            setData({ ...data, name: e.target.value, slug: e.target.value.toLowerCase().split(" ").join("-") }) 
+            setData({ ...data, name: e.target.value, slug: e.target.value.toLowerCase().split(" ").join("-") })
         }
         else {
-        setData({ ...data, [e.target.name]: e.target.value }) 
+            setData({ ...data, [e.target.name]: e.target.value })
         }
     }
-    
-    function handleChangePlat(e) {         
-        var array = data.platform        
-        if(!e.target.checked) array.splice(array.indexOf(e.target.value), 1)
-        else array.push(e.target.value)
-        setData({ ...data, platform: array}) 
-    } 
 
-    function handleChangeGenre(e) { 
-        var array = data.genre       
-        if(!e.target.checked) array.splice(array.indexOf(e.target.value), 1)
+    function handleChangePlat(e) {
+        var array = data.platform
+        if (!e.target.checked) array.splice(array.indexOf(e.target.value), 1)
         else array.push(e.target.value)
-        setData({ ...data, genre: array}) 
+        setData({ ...data, platform: array })
     }
-    
+
+    function handleChangeGenre(e) {
+        var array = data.genre
+        if (!e.target.checked) array.splice(array.indexOf(e.target.value), 1)
+        else array.push(e.target.value)
+        setData({ ...data, genre: array })
+    }
+
 
     async function postNewGame(e) {
         e.preventDefault()
@@ -71,10 +71,10 @@ export function AddGame(props) {
         dispatch(destroyGame(g))
     }
 
-    useEffect(() => { 
-        if (!gamesList.find(game => game.page === "1")) dispatch(primeraLista())              
+    useEffect(() => {
+        if (!gamesList.find(game => game.page === "1")) dispatch(primeraLista())
     },
-    [dispatch, gamesList])
+        [dispatch, gamesList])
 
     var games
     games = gamesList?.find(game => game.page === "1")?.games;
@@ -85,54 +85,64 @@ export function AddGame(props) {
         <div className="maindivAG">
             <div className="maindiv2AG">
                 <div className="titledivAG">
-                    <h1>Add Games</h1>
+                    <span>Add Games</span>
                 </div>
                 <div className="cont1AG">
-                    <form className="form1AG" onSubmit={(e) => postNewGame(e)}>
-                        *Name: <input className="inputsAG" name="name" type="text" onChange={handleInputChange} /><span className={data.name ? "spanNH" : "spanNS"}>{error.errorN}</span>
-                        <br />
-                        <div>Genre:
-                        <br />
-                            <div className="genredivAG">
-                                {genresList?.sort().map(g =>
-                                    <label key={`AG${key++}`}>
-                                        <input key={`AG${key++}`} name="genres" type="checkbox" value={`${g.name}`} onChange={handleChangeGenre} />{`${g.name}`}
-                                    </label>
-                                )}
+                    <div className="contFormAG">
+                        <form className="form1AG" onSubmit={(e) => postNewGame(e)}>
+                            <div>
+                                Name*: <input className="inputsAG" name="name" type="text" onChange={handleInputChange} /><span className={data.name ? "spanNH" : "spanNS"}>{error.errorN}</span>
                             </div>
-                        </div>
-                    Image Link: <input className="inputsAG" name="image" type="text" onChange={handleInputChange} />
-                        <br />
-                    *Desc: <input className="inputsAG" name="description" type="text" onChange={handleInputChange} /> <span className={data.description ? "spanNH" : "spanNS"}>{error.errorD}</span>
-                        <br />
-                    Release Date: <input className="inputsAG" name="releaseDate" type="text" onChange={handleInputChange} />
-                        <br />
-                    Rating: <input className="inputsAG" name="rating" type="text" onChange={handleInputChange} />
-                        <br />
-                        <div>
-                            *Platforms: <br />
-                            <div className="genredivAG">
-                                {platforms?.sort().map(p =>
-                                    <label key={`AG${key++}`}>
-                                        <input key={`AG${key++}`} name="platform" type="checkbox" value={`${p}`} onChange={handleChangePlat} />{`${p}`}
-                                    </label>
-                                )}
-                            </div><span className={data.platform[0] ? "spanNH": "spanNS"}>{error.errorP}</span>
-                        </div>
-                        <br />
-                        <input type="submit" value="Add game"/>
-                    </form>
-                    <div >
+                            <div>
+                                <span>Genre: </span>
+                                <div className="genredivAG">
+                                    {genresList?.sort().map(g =>
+                                        <label key={`AG${key++}`}>
+                                            <input key={`AG${key++}`} name="genres" type="checkbox" value={`${g.name}`} onChange={handleChangeGenre} />{`${g.name}`}
+                                        </label>
+                                    )}
+                                </div>
+                            </div>
+                            <div>
+                                Image Link: <input className="inputsAG" name="image" type="text" onChange={handleInputChange} />
+                            </div> 
+                            <div className="contDescAG">
+                                Description*: <textarea className="inputsAG" name="description" type="text" onChange={handleInputChange} /> <span className={data.description ? "spanNH" : "spanNS"}>{error.errorD}</span>
+                            </div>
+                            <div>
+                                Release Date: <input className="inputsAG" name="releaseDate" type="text" onChange={handleInputChange} />
+                            </div>
+                            <div>
+                                Rating: <input className="inputsAG" name="rating" type="text" onChange={handleInputChange} />
+                            </div>
+                            <div>
+                                Platforms*: <br />
+                                <div className="genredivAG">
+                                    {platforms?.sort().map(p =>
+                                        <label key={`AG${key++}`}>
+                                            <input key={`AG${key++}`} name="platform" type="checkbox" value={`${p}`} onChange={handleChangePlat} />{`${p}`}
+                                        </label>
+                                    )}
+                                </div><span className={data.platform[0] ? "spanNH" : "spanNS"}>{error.errorP}</span>
+                            </div>                            
+                            <div>
+                                <br />
+                                <input type="submit" value="Add game" />
+                            </div>
+                        </form>
+                    </div>
+
+                    <div className="contGameCardAG">
                         <form className="gamecarddivAG">
-                        {games?.filter(g => g.id.toString().includes("henry")).slice(0, 15).map(g =>
-                            <div key={`AG${key++}`}>
-                                <GameCard
-                                    game={g}
-                                />
-                                <button onClick={(e) => deleteGame(e, g)}>Delete</button>
-                            </div>
-                        )}                            
-                        </form>                        
+                            {games?.filter(g => g.id.toString().includes("henry")).slice(0, 15).map(g =>
+                                <div key={`AG${key++}`}>
+                                    <GameCard
+                                        game={g}
+                                    />
+                                    <button onClick={(e) => deleteGame(e, g)}>Delete</button>
+                                </div>
+                            )}
+                        </form>
                     </div>
                 </div>
             </div>
