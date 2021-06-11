@@ -78,7 +78,9 @@ function Filters() {
                         }>
                             <button className="buttonFilter"> Yes </button>
                         </Link>
-                        <Link to={
+                        <Link to={queryName ?
+                            `/search?name=${queryName}${queryfiltroGenero ? "&filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
+                            :
                             `/videogames?${queryfiltroGenero ? "filtroGenero=" + queryfiltroGenero : ""}${queryOrder ? "&order=" + queryOrder : ""}`
                         }>
                             <button className="buttonFilter">No</button>
