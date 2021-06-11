@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    max-width: 600px;
     justify-content: center;
 }
 
@@ -38,6 +39,7 @@
 }
 
 .buttonSearchSB {
+    cursor: pointer;
     position: absolute;
     margin-left: -64px;
     background: transparent;
@@ -51,6 +53,7 @@
 }
 
 .botonAddSB {  
+    cursor: pointer;
     margin: 0 5px;
     padding:5px 15px;
     border-radius: 15px;
@@ -60,6 +63,7 @@
 }
 
 .buttonHome {
+    cursor: pointer;
     color: white;
     background: rgb(88, 88, 88);
     margin: 0 5px;
@@ -70,6 +74,7 @@
 }
 
 .buttonMain {
+    cursor: pointer;
     color: white;
     background: rgb(88, 88, 88);
     margin: 0 5px;

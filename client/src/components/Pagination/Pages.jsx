@@ -115,7 +115,7 @@ function Pages() {
                         <Filters />
                     </div>
                     <div className="cont1P">
-                        {games?.map(g => <GameCard
+                        {games?.map((g,i) => <GameCard key={i}
                             game={g}
                         />)}
                     </div>

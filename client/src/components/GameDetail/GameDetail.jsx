@@ -64,18 +64,18 @@ function GameDetail() {
                 <div className="divimageGD">
                     <img className="imageD" src={detailsSS[index]} alt="" />
                     <div className="divImgButtonsGD">
-                        <button className="prevButtonGD" onClick={previous}>Previus</button>
+                        <button className="prevButtonGD" onClick={previous}>Previous</button>
                         <button className="nextButtonGD" onClick={next}>Next</button>
                     </div>
                 </div>
                 <div className="textdivGD">
                     <div>
-                        Género: {genres}
+                        Genre/s: {genres}
                     </div>
                     <p className="pDesc">{desc}</p>
-                    <p>Fecha de publicación: {gameDesc?.releaseDate}</p>
+                    <p>Release date: {gameDesc?.releaseDate}</p>
                     <p>Rating: {gameDesc?.rating}</p>
-                    <p>Plataformas: {gameDesc?.platform?.join(" / ").split(" ").map(p => p !== "/" ? p : ` ${p} `)}</p>
+                    <p>Platform/s: {gameDesc?.platform?.join(" / ").split(" ").map(p => p !== "/" ? p : ` ${p} `)}</p>
                 </div>
             </div>
         </div>
