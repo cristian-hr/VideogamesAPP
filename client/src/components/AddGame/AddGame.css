@@ -10,6 +10,26 @@
     text-align: start;
 }
 
+.addGameButtonAG {
+    color: white;
+    background: rgb(88, 88, 88);
+    margin: 2px 5px;
+    padding:5px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    border: none;
+}
+
+.deleteGameButtonAG {
+    color: white;
+    background: rgb(114, 71, 71);
+    margin: 2px 5px;
+    padding:5px 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    border: none;
+}
+
 .cont1AG {
     display: flex;
 }
@@ -48,9 +68,7 @@
 
 .contGameCardAG {
     display: flex;
-    /* justify-content: space-around; */
     flex-wrap: wrap;
-    /* max-width: 400px; */
 }
 
 @media (max-width: 600px) {

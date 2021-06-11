@@ -24,21 +24,17 @@ function App() {
   return (
     <div className="App">
       <Route exact path="/" component={Home}/>
-      <Route path="/videogames"component={SearchBar}/>
+      
       <Route path="/search"component={SearchBar}/>
-      <Route path="/addgame"component={SearchBar}/>
-      <div className="App2">
-        <Route exact path="/videogames" component={Main}/> 
+      <Route exact path="/search" component={SearchList}/>
 
-        <Route exact path="/videogames/page/:page" component={Pages}/> 
-
-        <Route exact path="/videogames/:name"component={GameDetail}/>  
-
-        <Route exact path="/search" component={SearchList}/>
-
-        <Route exact path="/addgame" component={AddGame}/>
-
-      </div>
+      <Route path="/addgame"component={SearchBar}/>      
+      <Route exact path="/addgame" component={AddGame}/>
+      
+      <Route path="/videogames"component={SearchBar}/>
+      <Route exact path="/videogames" component={Main}/> 
+      <Route exact path="/videogames/page/:page" component={Pages}/> 
+      <Route exact path="/videogames/:name"component={GameDetail}/> 
     </div>
   );
 }

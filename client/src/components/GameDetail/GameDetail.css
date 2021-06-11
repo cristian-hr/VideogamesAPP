@@ -1,4 +1,7 @@
 .bigContGD {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     animation-name: grow;
     animation-duration: 0.2s;
 }

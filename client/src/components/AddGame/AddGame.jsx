@@ -127,7 +127,7 @@ export function AddGame(props) {
                             </div>                            
                             <div>
                                 <br />
-                                <input type="submit" value="Add game" />
+                                <input className="addGameButtonAG" type="submit" value="Add game" />
                             </div>
                         </form>
                     </div>
@@ -139,7 +139,7 @@ export function AddGame(props) {
                                     <GameCard
                                         game={g}
                                     />
-                                    <button onClick={(e) => deleteGame(e, g)}>Delete</button>
+                                    <button className="deleteGameButtonAG" onClick={(e) => deleteGame(e, g)}>Delete</button>
                                 </div>
                             )}
                         </form>
