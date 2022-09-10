@@ -1,7 +1,7 @@
 {
-  "name": "api",
+  "name": "henry-videogames-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend",
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L",
