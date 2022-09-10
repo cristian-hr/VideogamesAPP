@@ -15,7 +15,9 @@
     "npm": ">=6.14.6"
   },
   "babel": {
-    "presets": ["@babel/preset-env"]
+    "presets": [
+      "@babel/preset-env"
+    ]
   },
   "dependencies": {
     "axios": "^0.21.1",
