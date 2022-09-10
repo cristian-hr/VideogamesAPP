@@ -33,6 +33,8 @@ server.use((req, res, next) => {
   next();
 });
 
+// comment
+
 server.use('/', routes);
 
 // Error catching endware.
