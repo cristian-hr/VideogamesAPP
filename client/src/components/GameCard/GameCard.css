@@ -19,11 +19,9 @@
 .backimage {
     width: 350px;
     height: 250px;
-    object-fit: cover;  
-    border: 2px; 
-    margin: 0 10px; 
-    border-style: solid;
-    border-color: rgb(148, 148, 148);  
+    object-fit: cover;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .genredivGC {
@@ -55,10 +53,8 @@
     .backimage {
         width: 300px;
         height: 200px;
-        object-fit: cover;  
-        border: 2px;  
-        border-style: solid;
-        border-color: rgb(148, 148, 148);  
+        object-fit: cover;
+        box-shadow: 0 0 10px 0 rgba(163, 163, 163, 0.5);
     }
 
     .genredivGC {

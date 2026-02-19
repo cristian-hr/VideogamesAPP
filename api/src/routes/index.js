@@ -3,7 +3,8 @@ const fetch = require("node-fetch");
 const { API_KEY } = process.env;
 const { Op } = require('sequelize');
 const { Router } = require('express');
-const pkg = require("../../package.json")
+
+const pkg = require('../../package.json')
 
 const router = Router();
 
@@ -58,8 +59,8 @@ router.get("/videogames", async (req, res) => {
                 .catch(err => console.log(err))
 
             if (dbFirstPageGenre[0]) {
-                if (req.query.order === "name") dbFirstPageGenre.sort((a, b) => a.slug > b.slug && 1 || -1)
-                if (req.query.order === "-rating") dbFirstPageGenre.sort((a, b) => a.rating > b.rating && -1 || 1)
+                if (req.query.order === "name") dbFirstPageGenre.sort((a,b) => a.slug > b.slug && 1 || -1)
+                if (req.query.order === "-rating") dbFirstPageGenre.sort((a,b) => a.rating > b.rating && -1 || 1)
                 firstPageGenreApi.unshift(...dbFirstPageGenre)
             }
 
@@ -73,8 +74,8 @@ router.get("/videogames", async (req, res) => {
         }
         else {
             if (req.query.order) {
-                if (req.query.order === "name") dbFirstPageGenre.sort((a, b) => a.slug > b.slug && 1 || -1)
-                if (req.query.order === "-rating") dbFirstPageGenre.sort((a, b) => a.rating > b.rating && -1 || 1)
+                if (req.query.order === "name") dbFirstPageGenre.sort((a,b) => a.slug > b.slug && 1 || -1)
+                if (req.query.order === "-rating") dbFirstPageGenre.sort((a,b) => a.rating > b.rating && -1 || 1)
                 res.send({
                     page: "1",
                     genre: req.query.filtroGenero,
@@ -132,11 +133,11 @@ router.get("/videogames", async (req, res) => {
                         return games;
                     }
                 })
-                .catch(err => console.log(err))
+                .catch(err => console.log(err))            
 
             if (dbFirstPage[0]) {
-                if (req.query.order === "name") dbFirstPage.sort((a, b) => a.slug > b.slug && 1 || -1)
-                if (req.query.order === "-rating") dbFirstPage.sort((a, b) => a.rating > b.rating && -1 || 1)
+                if (req.query.order === "name") dbFirstPage.sort((a,b) => a.slug > b.slug && 1 || -1)
+                if (req.query.order === "-rating") dbFirstPage.sort((a,b) => a.rating > b.rating && -1 || 1)
                 firstPageApi.unshift(...dbFirstPage)
             }
 
@@ -150,8 +151,8 @@ router.get("/videogames", async (req, res) => {
         }
         else {
             if (req.query.order) {
-                if (req.query.order === "name") dbFirstPage.sort((a, b) => a.slug > b.slug && 1 || -1)
-                if (req.query.order === "-rating") dbFirstPage.sort((a, b) => a.rating > b.rating && -1 || 1)
+                if (req.query.order === "name") dbFirstPage.sort((a,b) => a.slug > b.slug && 1 || -1)
+                if (req.query.order === "-rating") dbFirstPage.sort((a,b) => a.rating > b.rating && -1 || 1)
                 res.send({
                     page: "1",
                     genre: req.query.filtroGenero,
@@ -365,15 +366,15 @@ router.get("/genres", async (req, res) => {
         const allGenres = await fetch(`https://api.rawg.io/api/genres?key=${API_KEY}`)
             .then(res => res.json())
             .then(async (res) => {
-                let genres = res["results"].map(genre => { return { name: genre.name, slug: genre.slug } });
+                let genres = res["results"].map(genre => {return {name: genre.name, slug: genre.slug}});
                 for (var i = 0; i < genres.length; i++) {
                     await Genre.findOrCreate({
-                        where: {
-                            name: genres[i].name
+                        where: { 
+                            name: genres[i].name 
                         },
-                        defaults: {
-                            name: genres[i].name,
-                            slug: genres[i].slug
+                        defaults: { 
+                            name: genres[i].name, 
+                            slug: genres[i].slug 
                         }
                     })
                 }
@@ -437,13 +438,13 @@ router.get("/platforms", async (req, res) => {
     res.send(platforms).status(200)
 })
 
-router.get("/", async (req, res) => {
-    return res.status(200).json({
+router.get("/health", (req, res) => {
+    res.status(200).json({
         name: pkg.name,
         description: pkg.description,
         version: pkg.version,
         date: new Date(),
-    });
+      });
 })
 
 module.exports = router;

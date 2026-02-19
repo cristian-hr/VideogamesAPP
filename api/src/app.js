@@ -19,7 +19,6 @@ server.engine("html", nunjucks.render)
 server.use(express.json());
 server.use(cors())
 
-
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' }));
 server.use(cookieParser());
@@ -32,9 +31,9 @@ server.use((req, res, next) => {
   next();
 });
 
-// comment
-
 server.use('/', routes);
+
+server.use('/health', (req, res) => res.send({ date: Date.now() }));
 
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
