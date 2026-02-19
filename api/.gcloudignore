@@ -1,0 +1,24 @@
+# Dependencies (se instalan en el contenedor)
+node_modules/
+
+# Entorno local y secretos
+.env
+.env.*
+!.env.example
+
+# Git
+.git
+.gitignore
+
+# Tests y desarrollo
+tests/
+*.spec.js
+.eslintrc.json
+nodemon.json
+.nvmrc
+.npmrc
+
+# Documentación y otros
+README.md
+*.md
+.DS_Store
